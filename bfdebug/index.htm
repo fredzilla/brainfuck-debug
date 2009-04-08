@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Brainfuck Debugger</title>
+        <script type="text/javascript" src="globals.js"></script>
+        <script type="text/javascript" src="GUI.js"></script>
+        <script type="text/javascript" src="bf_functions.js"></script>
+    </head>
+    <body>
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <table>
+                        <tr>
+                            <!--text entry-->
+                            <td colspan="2">
+                                Code:<br/>
+                                <textarea id="myCode" rows="25" cols="100"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" colspan="2">
+                                Stack Size: <input type="text" value="250" id="stack_size"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" colspan="2">
+                                <button id="debugBtn" onclick="button_clicked()">Debug</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="50%">
+                    <table width="100%" border="1">
+                        <tr>
+                            <td align="center" colspan="*">
+                                <a name="#debug">-----Debugger-----</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!-- show code-->
+                            <td width="100%">
+                                Code:
+                                <div id="code" style="border-style: solid; border-width: thin; width:100%;height:200px;overflow:scroll"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--show output-->
+                            <td valign="top">
+                                Input Stream:<br/>
+                                <input type="text" id="input_text"><br/>
+                                Output Stream:
+                                <div id="output" style="border-style: solid; border-width: thin;width:50%;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="*">
+                                <button id="play" onclick="play()">Play</button>
+                                <input type="text" id="persec" value="4" size="2" maxlength="2" onkeyup="persec = document.getElementById('persec').value;" />/sec
+                                <button id="stop_m" onclick="stop_m()">Pause</button>
+                                <button id="next" onclick="next()">Next</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="*">
+                                ------<br/>
+                                Stack:
+                                <div id="stack" style="height:200px;overflow: auto"></div>
+                            </td>
+                        </tr>
+                          <tr>
+                            <td>
+                                <!--shows user the meaning of the colors-->
+                                Key:<br/>
+                                [<sub style='color:#cc0cbb;font-size:smaller;'>x</sub> or ]<sub style='color:#cc0cbb;font-size:smaller;'>x</sub>
+                                = Nesting depth of loop/if<br/>
+                                <span style='font-size: smaller;color:#008800'>This is a comment</span>
+                                = Anything not one of the 8 brainfuck commands.<br/>
+                                <span style='color:#880000;font-size: xx-large;background-color:#FFB90F;'>+</span>
+                                = The current character being evaluated.
+                            </td>
+                        </tr>  
+                    </table>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </body>
+</html>
