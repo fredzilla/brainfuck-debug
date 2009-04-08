@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Input</title>
+        <script type="text/javascript">
+            function runClose(){
+                index = document.getElementById('arname').value
+                alert(index)
+                window.opener.stack[index] = document.getElementById('inputBox').value
+                window.close();
+            }
+        </script>
+    </head>
+    <body>
+        Input:
+        <input type="text" maxlength="1" id="inputBox" size="1">
+        <button id="entered" onclick="runClose()">Enter</button>
+        <input type="text" id="arname">
+    </body>
+</html>
